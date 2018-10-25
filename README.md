@@ -1,6 +1,7 @@
 # nginx
 
 @@配置nginx worker进程最大打开文件数
+
 参数语法：worker_rlimit_nofile number 
 放置位置：主标签段 
 说明：作用是改变worker processes能打开的最大文件数
@@ -15,6 +16,7 @@ vim /etc/security/limits.conf
 
 
 @@开启高效文件传输模式
+
 设置参数 sendfile on;
 sendfile参数用于开启文件的高效传输模式。同时将tcp_nopush和tcp_nodelay两个指令设置为on，可防止网络及磁盘i/o阻塞，提升nginx工作效率。
 
