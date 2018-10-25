@@ -1,0 +1,12 @@
+nginx的连接处理机制在于不同的操作系统会采用不同的I/O模型，
+Linux下，nginx使用epoll的I/O多路复用模型，
+在freebsd使用kqueue的IO多路复用模型，
+在solaris使用/dev/pool方式的IO多路复用模型，
+在windows使用的icop等等。 
+要根据系统类型不同选择不同的事务处理模型，选择有“use [ kqueue | rtsig |epool |dev/pool |select |pllo ];”我们使用的是Centos6.5的linux，
+因此将nginx的事件处理模型调整为epool模型。
+
+events {
+worker_connections  1024;
+use epoll;
+}
