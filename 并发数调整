@@ -1,0 +1,7 @@
+events {
+    worker_connections  1024;    #一个worker进程的并发
+}
+
+总并发= worker_processes* worker_connections
+
+并不是调越大越好，还需要根据网络和系统具体调整
