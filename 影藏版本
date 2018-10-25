@@ -1,0 +1,27 @@
+修改后：
+xfy@xfy-PC:~$ curl -I 172.16.10.14
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 25 Oct 2018 10:33:40 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Tue, 17 Apr 2018 15:48:00 GMT
+Connection: keep-alive
+ETag: "5ad61730-264"
+Accept-Ranges: bytes
+
+修改前：
+xfy@xfy-PC:~$ curl -I 172.16.10.14
+HTTP/1.1 200 OK
+Server: nginx/1.14.0
+Date: Thu, 25 Oct 2018 10:34:38 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Tue, 17 Apr 2018 15:48:00 GMT
+Connection: keep-alive
+ETag: "5ad61730-264"
+Accept-Ranges: bytes
+
+修改方法：
+  http模块下加入：
+    server_tokens off;
